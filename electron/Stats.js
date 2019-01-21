@@ -131,8 +131,8 @@ class Stats {
     let iconOpts = [
       { indicator: 'mem', value: result.memory.percentage.used, unit: 'percentage' },
       { indicator: 'cpu', value: result.cpu.percentage.used, unit: 'percentage' },
-      { indicator: 'dow', value: result.network.download, unit: 'mbs' },
-      { indicator: 'up', value: result.network.upload, unit: 'mbs' }
+      { indicator: 'dow', value: result.network.download, unit: 'up' },
+      { indicator: 'up', value: result.network.upload, unit: 'dow' }
     ]
 
     //draw the icon
@@ -164,8 +164,8 @@ class Stats {
     var currentUpload = upload - this.lastUploadVal
     var currentDownload = download - this.lastDownloadVal
 
-    currentUpload = Math.round(currentUpload * 10) / 10
-    currentDownload = Math.round(currentDownload * 10) / 10
+    currentUpload = Math.round(currentUpload * 100) / 100
+    currentDownload = Math.round(currentDownload * 100) / 100
 
     var threshhold = 0.1
     if(currentUpload < threshhold) {

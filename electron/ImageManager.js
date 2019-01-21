@@ -74,11 +74,13 @@ class ImageManager {
         case 'percentage':
           unit = '%'
           break
-        case 'mbs':
+        case 'up':
+          unit = ''
+          break
+        case 'dow':
           unit = ''
           break
       }
-
       //title
       switch (icon.indicator) {
         case 'mem':
@@ -95,8 +97,9 @@ class ImageManager {
           break
       }
 
-      jimpImg.print(fontTitle, 0, 2, { text: title, alignmentY: Jimp.VERTICAL_ALIGN_TOP }, COMPACT_W, HEIGHT)
-      jimpImg.print(fontValue, 0, 0, { text: value + unit, alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM }, COMPACT_W, HEIGHT)
+      jimpImg.print(fontTitle, 0, 2, { text: title, alignmentY: Jimp.VERTICAL_ALIGN_TOP, alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER }, COMPACT_W, HEIGHT)
+      jimpImg.print(fontValue, 0, 0, { text: value + unit, alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM, alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER }, COMPACT_W, HEIGHT)
+      // jimpImg.print(fontValue, 0, 2, { text: value + unit, alignmentY: Jimp.VERTICAL_ALIGN_TOP }, COMPACT_W, HEIGHT)
 
       return jimpImg
     })
