@@ -20,8 +20,10 @@ const store = new Store({
     indicators: [
       { name: 'CPU', short: 'cpu', showGraph: true, showIcon: true, color: '#0693E3', showColorPicker: false },
       { name: 'Memory', short: 'mem', showGraph: true, showIcon: true, color: '#00D084', showColorPicker: false },
+      { name: 'UP', short: 'up', showGraph: false, showIcon: true, color: '#00D084', showColorPicker: false },
+      { name: 'DOWN', short: 'dow', showGraph: false, showIcon: true, color: '#00D084', showColorPicker: false },
     ],
-    launchOnLogin: true,
+    launchOnLogin: false
   },
 })
 
@@ -138,7 +140,6 @@ const enableDisableAutoStartup = (launchOnLogin) => {
 
 //main
 mb.on('ready', () => {
-
   //auto launcher
   autoLaunch = new AutoLaunch({
     name: 'MacOS Activity Monitor',

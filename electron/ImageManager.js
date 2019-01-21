@@ -74,6 +74,9 @@ class ImageManager {
         case 'percentage':
           unit = '%'
           break
+        case 'mbs':
+          unit = ''
+          break
       }
 
       //title
@@ -83,6 +86,12 @@ class ImageManager {
           break
         case 'cpu':
           title = 'CPU'
+          break
+        case 'dow':
+          title = 'DOW'
+          break
+        case 'up':
+          title = 'UP'
           break
       }
 
@@ -108,10 +117,8 @@ class ImageManager {
       if (!indicator.showIcon) {
         return
       }
-
       icons.push(iconsOptions.find(icon => icon.indicator === indicator.short))
     })
-
     //user turned off all icons, should display default icon
     if (icons.length === 0) {
       this.setTrayImage(imageDir + 'statTemplate.png')
@@ -120,7 +127,6 @@ class ImageManager {
 
     let iconImages = []
     iconImages = await this.getCompactVersionIcons(icons)
-
     //grab all icons (cpu, mem, etc) and merge into one image
     let totalWidth = iconImages.length * COMPACT_W + (iconImages.length - 1) * SPACE_W
     let finalIcon = await new Jimp(totalWidth, HEIGHT)
