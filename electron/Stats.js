@@ -161,11 +161,12 @@ class Stats {
     })
     upload /= (this.interval * 1000)
     download /= (this.interval * 1000)
-    upload = Math.round(upload * 10) / 10
-    download = Math.round(download * 10) / 10
-
     var currentUpload = upload - this.lastUploadVal
-    var currentDownload =download - this.lastDownloadVal
+    var currentDownload = download - this.lastDownloadVal
+
+    currentUpload = Math.round(currentUpload * 10) / 10
+    currentDownload = Math.round(currentDownload * 10) / 10
+
     var threshhold = 0.1
     if(currentUpload < threshhold) {
       currentUpload = 0
@@ -176,7 +177,6 @@ class Stats {
 
     this.lastUploadVal = upload
     this.lastDownloadVal = download
-
     return {
       download: currentDownload,
       upload: currentUpload

@@ -1,7 +1,7 @@
 const Jimp = require('Jimp')
 
 const HEIGHT = 22
-const COMPACT_W = 26
+const COMPACT_W = 36
 const SPACE_W = 5
 
 const imageDir = __dirname + '/../icons/'
@@ -88,10 +88,10 @@ class ImageManager {
           title = 'CPU'
           break
         case 'dow':
-          title = 'DOW'
+          title = 'DO mb/s'
           break
         case 'up':
-          title = 'UP'
+          title = 'UP mb/s'
           break
       }
 
